@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LA</title>
+  <style>
+    canvas {
+      border: 1px solid red;
+    }
+  </style>
+</head>
+<body>
+  <canvas width="600" height="600" id="canvas"></canvas> 
+  <button id="toImg">hello</button>
+  <script type="text/javascript">
+    function random_rgb() {
+      return Math.floor(Math.random() * 255).toString(16);
+    }
+    var canvas = document.getElementById('canvas'),
+        ctx = canvas.getContext('2d');
+    ctx.fillStyle = "#f0f0f0";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    var start_x = 50, start_y = 50, size = 100;
+    var lastColor = '';
+    for (var i = 0; i < 5; i++) {
+      for (var j = 0; j < 5; j++) {
+        ctx.fillStyle = '#' + random_rgb() + random_rgb() + random_rgb();
+        if (ctx.fillStyle == lastColor) {
+          j--;
+          continue;
+        };
+        ctx.fillRect(start_x + i * size, start_y + j* size, size, size);
+        lastColor = ctx.fillStyle;
+      };
+    };
+
+    ctx.fillStyle = "#f0f0f0";
+    ctx.fillRect(150, 50, 100, 400);
+    ctx.fillRect(350, 150, 100, 100);
+    ctx.fillRect(350, 350, 100, 200);
+    var imgStr = canvas.toDataURL();
+    document.getElementById('toImg').onclick = function() {
+      document.body.innerHTML ='<img src="' + imgStr  + '" />'
+    }
+  </script>
+</body>
+</html>
