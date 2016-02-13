@@ -1,16 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
+<!-- saved from url=(0024)http://vamdt.com/la.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
   <title>LA</title>
   <style>
     canvas {
       border: 1px solid red;
     }
   </style>
-</head>
+<style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style></head>
 <body>
-  <canvas width="600" height="600" id="canvas"></canvas> 
+  <canvas width="1500" height="1500" id="canvas"></canvas> 
   <button id="toImg">hello</button>
   <script type="text/javascript">
     function random_rgb() {
@@ -23,8 +36,8 @@
 
     var start_x = 50, start_y = 50, size = 100;
     var lastColor = '';
-    for (var i = 0; i < 5; i++) {
-      for (var j = 0; j < 5; j++) {
+    for (var i = 0; i < 14; i++) {
+      for (var j = 0; j < 14; j++) {
         ctx.fillStyle = '#' + random_rgb() + random_rgb() + random_rgb();
         if (ctx.fillStyle == lastColor) {
           j--;
@@ -36,13 +49,65 @@
     };
 
     ctx.fillStyle = "#f0f0f0";
-    ctx.fillRect(150, 50, 100, 400);
-    ctx.fillRect(350, 150, 100, 100);
-    ctx.fillRect(350, 350, 100, 200);
+        // ctx.fillRect(150, 50, 100, 400);
+        // ctx.fillRect(350, 150, 100, 100);
+        // ctx.fillRect(350, 350, 100, 200);
+    // ctx.fillRect(50, 150, 200, 100);
+    // ctx.fillRect(350, 150, 200, 100);
+    // ctx.fillRect(50, 350, 200, 100);
+    // ctx.fillRect(350, 350, 200, 100);
+    // hua
+    // ctx.fillRect(50, 50, 200, 100);
+    // ctx.fillRect(350, 50, 200, 100);
+    // ctx.fillRect(650, 50, 200, 100);
+    // ctx.fillRect(50, 250, 200, 100);
+    // ctx.fillRect(50, 550, 100, 300);
+    // ctx.fillRect(250, 350, 100, 500);
+    // ctx.fillRect(350, 250, 100, 400);
+    // ctx.fillRect(350, 750, 100, 100);
+    // ctx.fillRect(50, 350, 100, 100);
+    // ctx.fillRect(750, 250, 100, 300);
+    // ctx.fillRect(550, 250, 200, 100);
+    // ctx.fillRect(550, 350, 100, 100);
+    // ctx.fillRect(650, 450, 100, 300);
+    // ctx.fillRect(550, 550, 100, 200);
+    
+    // jing
+    ctx.fillRect(150 + 100, 50, 300, 300);
+    ctx.fillRect(50 + 100, 650, 100, 600);
+    ctx.fillRect(150 + 100, 850, 100, 200);
+    ctx.fillRect(450 + 100, 650, 100, 600);
+    ctx.fillRect(150 + 100, 450, 300, 200);
+    ctx.fillRect(250 + 100, 650, 100, 100);
+    ctx.fillRect(150 + 100, 1250, 100, 200);
+    ctx.fillRect(250 + 100, 1150, 100, 400);
+    ctx.fillRect(350 + 100, 1250, 100, 200);
+    ctx.fillRect(350 + 100, 850, 100, 200);
+    ctx.fillRect(550 + 100, 50, 400, 100);
+    ctx.fillRect(1050 + 100, 50, 300, 100);
+    ctx.fillRect(550 + 100, 150, 200, 100);
+    ctx.fillRect(650 + 100, 350, 100, 100);
+    ctx.fillRect(1250 + 100, 150, 100, 300);
+    ctx.fillRect(550 + 100, 250, 400, 100);
+    ctx.fillRect(1050 + 100, 250, 300, 100);
+    ctx.fillRect(550 + 100, 450, 400, 100);
+    ctx.fillRect(1050 + 100, 450, 300, 100);
+    ctx.fillRect(550 + 100, 650, 100, 800);
+    ctx.fillRect(650 + 100, 650, 700, 100);
+    ctx.fillRect(750 + 100, 850, 500, 100);
+    ctx.fillRect(750 + 100, 1050, 500, 100);
+    ctx.fillRect(750 + 100, 1250, 500, 100);
+    ctx.fillRect(750 + 100, 1350, 300, 100);
+    ctx.fillRect(550 + 100, 550, 100, 100);
+    ctx.fillRect(50, 50, 100, 300);
+    ctx.fillRect(50, 450, 100, 1000);
+
+
     var imgStr = canvas.toDataURL();
     document.getElementById('toImg').onclick = function() {
       document.body.innerHTML ='<img src="' + imgStr  + '" />'
     }
   </script>
-</body>
-</html>
+
+
+</body><div></div><div></div></html>
