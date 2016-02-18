@@ -12,6 +12,7 @@
 </style></head>
 <body>
   <canvas width="1000" height="1000" id="canvas"></canvas> 
+  <button id="redraw">重画</button>
   <button id="toImg">hello</button>
   <script type="text/javascript">
     function random_rgb() {
@@ -38,20 +39,36 @@
     ctx.strokeStyle='#000000';
     ctx.stroke();
 
+    var grid = [], 
+        rowLength = canvas.width / size - 2,
+        colLength = canvas.height / size - 2;
+    grid = new Array(rowLength);
+    for (var i = 0; i < rowLength; i++) {
+        grid[i] = new Array(colLength);
+        console.log(grid);
+        for (var j = 0; j < colLength; j++) {
+            grid[i][j] = 0;
+        };
+    };
+    console.log(grid);
     canvas.onclick = function(event) {
-        console.log(event);
-        console.log(event.offsetX);
-        console.log(event.offsetY);
         if (event.offsetX < size || 
             event.offsetX > canvas.width - size ||
             event.offsetY < size ||
             event.offsetY > canvas.height - size) {
             console.warn("out!!!")
         } else {
-            var drawX = start_x + Math.ceil(event.offsetX / 50) * size;
-            var drawY = start_y + Math.ceil(event.offsetY / 50) * size;
-            ctx.moveTo(drawX, drawY);
-            ctx.fillStyle = '#' + random_rgb() + random_rgb() + random_rgb();
+            var xUnitLength = Math.floor(event.offsetX / size) - 1;
+            var yUnitLength = Math.floor(event.offsetY / size) - 1;
+            if (grid[xUnitLength ][yUnitLength] == 1) {
+                grid[xUnitLength][yUnitLength] = 0;
+                ctx.fillStyle = "#f0f0f0";
+            } else {
+                grid[xUnitLength][yUnitLength] = 1;
+                ctx.fillStyle = '#' + random_rgb() + random_rgb() + random_rgb();
+            }
+            var drawX =  Math.floor(event.offsetX / size) * size;
+            var drawY =  Math.floor(event.offsetY / size) * size;
             ctx.fillRect(drawX, drawY, size, size);
         }
     }
@@ -122,8 +139,24 @@
     // ctx.fillRect(50, 450, 100, 1000);
     //
 
-    var imgStr = canvas.toDataURL();
+    function redraw() {
+        console.log(grid);
+        ctx.fillStyle = "#f0f0f0";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        for (var i = 0; i < grid.length; i++) {
+            for (var j = 0; j < grid[i].length; j++) {
+                if ( grid[i][j] === 1 ) {
+                    ctx.fillStyle = '#' + random_rgb() + random_rgb() + random_rgb();
+                    ctx.fillRect( size * (i + 1), size * (j + 1), size, size);
+                }
+            };
+        };
+    }
+
+    document.getElementById('redraw').onclick = redraw;
+
     document.getElementById('toImg').onclick = function() {
+      var imgStr = canvas.toDataURL();
       document.body.innerHTML ='<img src="' + imgStr  + '" />'
     }
   </script>
