@@ -11,7 +11,7 @@
                    <key>kind</key>
                    <string>software-package</string>
                    <key>url</key>
-                   <string>http://103.42.212.111:8899/app/ios/Dai-Hentai.ipa</string>
+                   <string>https://raw.githubusercontent.com/vamdt/vamdt.github.io/master/assets/plist/Dai-Hentai.ipa</string>
                </dict>
            </array>
            <key>metadata</key>
